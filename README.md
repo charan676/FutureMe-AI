@@ -9,30 +9,36 @@ FutureMe AI is an AI-powered web application that enables users to engage in mea
 ---
 
 ## ✨ Features
-🤖 AI-powered future self conversations
-🎯 Personalized goal-oriented guidance
-💡 Future-focused insights and motivation
-⚡ Google Gemini AI integration
-📱 Fully responsive design
-🌙 Modern and intuitive user interface
-🔒 Secure API key management using environment variables
-🚀 Fast and interactive user experience
+
+- 🤖 AI-powered future self conversations
+- 🎯 Personalized goal-oriented guidance
+- 💡 Future-focused insights and motivation
+- ⚡ Google Gemini AI integration
+- 📱 Fully responsive design
+- 🌙 Modern and intuitive user interface
+- 🔒 Secure API key management using environment variables
+- 🚀 Fast and interactive user experience
 
 ---
 
 ## 🛠️ Tech Stack
 
+## 🛠️ Tech Stack
+
 ### Frontend
-React.js
-Vite
-CSS3
+- React.js
+- Vite
+- CSS3
+
 ### Backend
-Node.js
-Express.js
+- Node.js
+- Express.js
+
 ### AI Integration
-Google Gemini API
+- Google Gemini API
+
 ### Deployment
-Netlify
+- Netlify
 
 ---
 
@@ -155,13 +161,14 @@ Handles direct follow-up questions from the user, preserving context and profile
 ---
 
 ## 🚀 Future Improvements
-Google/GitHub Authentication
-Persistent Chat History Storage
-Goal Tracking Dashboard
-Email Reminders and Progress Reports
-Enhanced AI Conversation Context
-Multiple Future Self Personalities
-Analytics and User Insights
+
+- Google/GitHub Authentication
+- Persistent Chat History Storage
+- Goal Tracking Dashboard
+- Email Reminders and Progress Reports
+- Enhanced AI Conversation Context
+- Multiple Future Self Personalities
+- Analytics and User Insights
 
 ---
 
