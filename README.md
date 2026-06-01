@@ -23,8 +23,6 @@ FutureMe AI is an AI-powered web application that enables users to engage in mea
 
 ## 🛠️ Tech Stack
 
-## 🛠️ Tech Stack
-
 ### Frontend
 - React.js
 - Vite
