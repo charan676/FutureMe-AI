@@ -139,7 +139,7 @@ Handles direct follow-up questions from the user, preserving context and profile
 
 ---
 
-## 🌟 Demo Guide for Sunday Session
+## 🌟 Demo Guide
 
 1. **Setup beforehand:** Run `npm run dev` and ensure the terminal console shows port `5000`.
 2. **First view:** Highlight the dark, glass-blur design and status indicators that give it an ultra-premium feel.
