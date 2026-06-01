@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureMe - AI Self-Reflection</title>
+    <!-- Linked Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Radial backing glow elements from your design -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Apple-style Navigation bar -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">FutureMe AI</a>
+            <div class="nav-links">
+                <a href="#how-it-works">How it works</a>
+                <a href="#create">Create</a>
+                <a href="#chat">Chat</a>
+                <a href="#hacks">AI Hacks</a>
+            </div>
+            <a href="#create" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Start Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <div class="pill">FutureMe</div>
+                <h1 class="gradient-text">Meet the version of you who already made it.</h1>
+                <p>FutureMe helps you reflect, plan, and receive advice from the person you are becoming. Turn your
+                    aspirations into an interactive mentor.</p>
+                <div class="hero-btns">
+                    <a href="#create" class="btn btn-primary">Create My FutureMe</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+                <div class="glass-card ai-preview-card">
+                    <div class="preview-header">
+                        <div class="avatar"></div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.1rem; color: #fff;">Message from Future You</h3>
+                            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                                <span class="status-dot"></span>Online now
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #fff; font-size: 1.1rem; line-height: 1.5;">"You are closer than you think. But
+                        your current habits need to match your future identity. Stop overthinking the first step."</p>
+                    <div class="meta-text">FutureMe generated • 4 seconds ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "How it works" hook grid -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+                <h2>Reflect. Reveal. <span class="gradient-text-accent">Rise.</span></h2>
+                <p>The gap between who you are and who you want to be is just a conversation.</p>
+            </div>
+            <div class="hook-grid">
+                <div class="hook-card reveal">
+                    <h3>Your goals</h3>
+                    <p>Tell FutureMe what you want to become. Define the vision with crystal clarity.</p>
+                </div>
+                <div class="hook-card reveal" style="transition-delay: 0.1s;">
+                    <h3>Your fears</h3>
+                    <p>Be honest about what is stopping you. Acknowledge the friction in your journey.</p>
+                </div>
+                <div class="hook-card reveal" style="transition-delay: 0.2s;">
+                    <h3>Your next move</h3>
+                    <p>Get a clear, unbiased message from your future self detailing exactly what to do next.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Creator Form panel & loading/results container -->
+    <section id="create" class="app-section">
+        <div class="container">
+            <div class="pill reveal">AI Reflection Panel</div>
+            <h2 class="reveal">Initialize Your Future Self</h2>
+            <p class="reveal" style="max-width: 600px; margin: 0 auto 3rem;">Fill in the parameters below. The more
+                honest you are, the more powerful the reflection will be.</p>
+
+            <!-- Main Creator Form panel & loading container (constrained to a focused 600px max-width) -->
+            <div class="form-container reveal" id="form-wrapper">
+
+                <!-- 1. The Interactive Inputs Form (Glassmorphic input card) -->
+                <form id="future-form" class="glass-card" style="padding: 2.5rem;">
+                    <div class="form-group">
+                        <label for="fm-name">Your First Name</label>
+                        <input type="text" id="fm-name" placeholder="e.g. Alex" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fm-age">Your Current Age</label>
+                        <input type="number" id="fm-age" placeholder="e.g. 25" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fm-goal">What is your biggest dream or goal right now?</label>
+                        <textarea id="fm-goal" placeholder="e.g. Building a SaaS startup that reaches $10k MRR..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fm-struggle">What is currently holding you back?</label>
+                        <textarea id="fm-struggle" placeholder="e.g. Procrastination, fear of failure, perfectionism..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fm-timeline">Where do you want to be in 1 year?</label>
+                        <input type="text" id="fm-timeline" placeholder="e.g. Working full-time on my business"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fm-tone">Choose your FutureMe tone</label>
+                        <select id="fm-tone" required>
+                            <option value="" disabled selected>Select how your future self should speak...</option>
+                            <option value="motivational">Motivational (Warm & inspiring)</option>
+                            <option value="brutally_honest">Brutally Honest (Direct & no excuses)</option>
+                            <option value="calm_mentor">Calm Mentor (Grounded & wise)</option>
+                            <option value="ceo_mode">CEO Mode (Strategic & systems-focused)</option>
+                        </select>
+                    </div>
+                    <div class="error-msg" id="form-error">Please fill out all fields honestly to proceed.</div>
+                    <button type="submit" id="btn-generate" class="btn btn-primary"
+                        style="width: 100%; margin-top: 1rem;">Generate My FutureMe</button>
+                </form>
+
+                <!-- 2. Cosmic Starry Loading Sequence (Glassmorphic loader card) -->
+                <div id="loading-state" class="glass-card"
+                    style="display: none; padding: 4rem 2.5rem; text-align: center;">
+                    <div class="spinner"></div>
+                    <h3 id="loader-title" style="color: #fff; margin-bottom: 0.5rem;">Creating your future identity...
+                    </h3>
+                    <p id="loader-subtitle" style="font-size: 0.95rem; margin-bottom: 0;">Analyzing constraints and
+                        calculating trajectory.</p>
+                </div>
+            </div>
+
+            <!-- 3. Dynamic Future Self Reflection Letter & Daily Action Plan (Ultra-Premium SPACIOUS Dashboard) -->
+            <div id="result-state" class="glass-card result-card reveal"
+                style="display: none; max-width: 900px; margin: 3rem auto 0; padding: 2.5rem; position: relative;">
+
+                <!-- Dashboard Header -->
+                <div class="db-header"
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="avatar"
+                            style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); box-shadow: 0 0 15px var(--primary-glow);">
+                        </div>
+                        <div style="text-align: left;">
+                            <h3 style="margin: 0; color: #fff; font-size: 1.25rem;">Timeline Portal Sync</h3>
+                            <div
+                                style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center;">
+                                <span class="status-dot"></span>Synchronized & active
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span id="plan-tone-badge" class="pill"
+                            style="margin-bottom: 0; background: rgba(74, 108, 255, 0.08); border-color: rgba(74, 108, 255, 0.2); color: #88ccff; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.4rem 0.85rem;">Brutally
+                            Honest</span>
+                    </div>
+                </div>
+
+                <!-- Large Quote Block: Message from Future Self -->
+                <div class="db-letter-section"
+                    style="margin-bottom: 2.5rem; padding: 2.25rem; background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); position: relative; box-shadow: inset 0 0 20px rgba(255,255,255,0.01);">
+                    <div
+                        style="position: absolute; top: -1.1rem; left: 1.5rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        LETTER FROM THE FUTURE</div>
+                    <p class="result-message" id="res-msg"
+                        style="font-size: 1.2rem; font-weight: 500; line-height: 1.6; color: #fff; margin-bottom: 0; font-style: italic; text-align: left;">
+                    </p>
+                </div>
+
+                <!-- Two-Column Dashboard Grid -->
+                <div class="db-grid"
+                    style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 2.25rem; margin-bottom: 2.5rem;">
+
+                    <!-- Left Column: Interactive Action Plan -->
+                    <div class="db-main-col" style="display: flex; flex-direction: column; gap: 2rem;">
+
+                        <!-- Daily Action Plan Section -->
+                        <div
+                            style="background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; height: 100%; text-align: left;">
+                            <h4
+                                style="color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; font-weight: 700;">
+                                DAILY INTERACTIVE PLAN</h4>
+                            <p
+                                style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; line-height: 1.5;">
+                                This dynamic blueprint targets your primary block: <strong style="color: #fff;"><span
+                                        id="plan-struggle-text"></span></strong>. Click slots as you complete them to
+                                sync progress.
+                            </p>
+
+                            <!-- Glow Progress Tracker -->
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                <span
+                                    style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.02em;">ALIGNMENT
+                                    PROGRESS</span>
+                                <span id="progress-percentage"
+                                    style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">0%
+                                    COMPLETED</span>
+                            </div>
+                            <div class="progress-bar-container"
+                                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; height: 8px; margin-bottom: 1.75rem; overflow: hidden; position: relative;">
+                                <div id="plan-progress"
+                                    style="background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0%; height: 100%; transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 0 10px var(--primary-glow);">
+                                </div>
+                            </div>
+
+                            <!-- Checklist Target -->
+                            <div class="daily-plan-list" id="res-daily-plan">
+                                <!-- Dynamic checklist cards are rendered here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Strategic Widgets -->
+                    <div class="db-sidebar-col"
+                        style="display: flex; flex-direction: column; gap: 1.5rem; text-align: left;">
+
+                        <!-- 1. Future Identity Card -->
+                        <div
+                            style="background: linear-gradient(135deg, rgba(74, 108, 255, 0.04) 0%, rgba(157, 78, 221, 0.04) 100%); border: 1px solid rgba(74, 108, 255, 0.15); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <h4
+                                style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 800;">
+                                FUTURE IDENTITY</h4>
+                            <p id="res-identity"
+                                style="color: #fff; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5; font-weight: 600;">
+                            </p>
+                        </div>
+
+                        <!-- 2. Next 3 Moves Card -->
+                        <div
+                            style="background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem;">
+                            <h4
+                                style="color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; font-weight: 800;">
+                                IMMEDIATE CRITICAL STEPS</h4>
+                            <ul id="res-moves"
+                                style="color: var(--text-muted); margin-left: 1.25rem; padding-top: 0; line-height: 1.6; font-size: 0.9rem;">
+                            </ul>
+                        </div>
+
+                        <!-- 3. Daily Habit & Warning Row (Grid) -->
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <!-- Emerald Habit Card -->
+                            <div
+                                style="background: rgba(76, 175, 80, 0.02); border: 1px solid rgba(76, 175, 80, 0.12); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <h4
+                                    style="color: #4CAF50; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 800;">
+                                    DAILY HABIT</h4>
+                                <p id="res-habit"
+                                    style="color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0; line-height: 1.4;">
+                                </p>
+                            </div>
+
+                            <!-- Coral Warning Card -->
+                            <div
+                                style="background: rgba(255, 82, 82, 0.02); border: 1px solid rgba(255, 82, 82, 0.12); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <h4
+                                    style="color: #ff8888; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 800;">
+                                    TIMELINE WARNING</h4>
+                                <p id="res-warning"
+                                    style="color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0; line-height: 1.4;">
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Daily Mantra Card -->
+                        <div
+                            style="background: rgba(192, 132, 252, 0.02); border: 1px solid rgba(192, 132, 252, 0.12); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <h4
+                                style="color: #c084fc; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 800;">
+                                DAILY MANTRA</h4>
+                            <p id="res-mantra"
+                                style="color: #c084fc; font-style: italic; font-size: 1.1rem; font-weight: 700; margin-bottom: 0; line-height: 1.4;">
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Unified Action Buttons & Chat Triggers -->
+                <div
+                    style="border-top: 1px solid var(--border); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()"
+                            style="flex: 1; min-width: 200px;">Configure New Identity</button>
+                        <button type="button" id="btn-copy-result" class="btn btn-secondary"
+                            style="flex: 1; min-width: 200px;">Copy Full Result</button>
+                    </div>
+                    <button type="button" id="btn-go-chat" class="btn btn-primary" style="width: 100%;">Speak to Your
+                        Future Self</button>
+                </div>
+            </div>
+    </section>
+
+    <!-- InteractiveDialogue follow-up chat Pane -->
+    <section id="chat">
+        <div class="container">
+            <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+                <h2>Ask your future self anything.</h2>
+                <p>Maintain timeline sync via a direct interactive alignment dialogue.</p>
+            </div>
+            <div class="chat-container">
+                <div class="glass-card"
+                    style="padding: 2rem; border-color: rgba(74, 108, 255, 0.15); box-shadow: 0 0 35px rgba(74, 108, 255, 0.05);">
+
+                    <!-- Dialogue Timeline -->
+                    <div class="chat-box" id="chat-messages-container"
+                        style="max-height: 450px; overflow-y: auto; padding-right: 0.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Default Welcome msg -->
+                        <div class="msg msg-ai">
+                            <div class="msg-label">FutureMe</div>
+                            I am here. You have my letter, but I know there are things you still doubt. Ask me anything
+                            about what's ahead, how to handle today, or how I conquered the struggle. I'm listening.
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div id="chat-typing-indicator"
+                        style="display: none; align-items: center; gap: 6px; padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        <span class="status-dot"
+                            style="background: var(--accent); box-shadow: 0 0 10px var(--accent); display: inline-block;"></span>
+                        FutureMe is thinking...
+                    </div>
+
+                    <!-- Input Box Panel -->
+                    <form id="chat-input-form" style="display: flex; gap: 1rem;">
+                        <input type="text" id="chat-field" placeholder="Ask your FutureMe anything..."
+                            autocomplete="off" style="flex: 1;" required>
+                        <button type="submit" id="btn-send-chat" class="btn btn-primary"
+                            style="padding: 0 1.75rem;">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hack / Insight panel -->
+    <section id="hacks">
+        <div class="container">
+            <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+                <h2>FutureMe AI Hacks</h2>
+                <p>Optimize your cognitive prompting loops and elevate your reflection systems.</p>
+            </div>
+            <div class="hacks-container" style="max-width: 850px; margin: 0 auto;">
+                <div class="glass-card hack-panel reveal" style="padding: 2.5rem;">
+                    <div class="pill">Framework Guidance</div>
+                    <p style="font-size: 1.1rem; color: #fff; margin-bottom: 2rem;">Elevate your prompt engineering.
+                        Stop asking AI what to do; ask it to be the person who already did it.</p>
+
+                    <ul class="hack-list" style="margin-top: 0;">
+                        <li>
+                            <div class="hack-icon">1</div>
+                            <div class="hack-text">
+                                <strong>Identity Prompting</strong>
+                                <p>Don't ask AI for generic advice. Ask it to respond as the future version of you who
+                                    successfully solved the exact problem you are facing today.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hack-icon">2</div>
+                            <div class="hack-text">
+                                <strong>Constraint Prompting</strong>
+                                <p>Add strict limits like time, budget, energy, and skill level to force the AI out of
+                                    textbook answers and into highly practical, executable steps.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hack-icon">3</div>
+                            <div class="hack-text">
+                                <strong>Reverse Fear Prompting</strong>
+                                <p>Instead of asking how to succeed, ask the AI what specific mistake your future self
+                                    would urgently warn you about making today.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer call-to-action & Share triggers -->
+    <section class="dopamine reveal">
+        <div class="container">
+            <h2>You didn't just build a page.<br><span class="gradient-text-accent">You built a mirror.</span></h2>
+            <p style="max-width: 500px; margin: 0 auto 2rem;">FutureMe turns AI from a generic utility tool into a
+                profound personal growth experience.</p>
+            <button class="btn btn-primary" id="btn-share-trigger">Share My FutureMe</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            FutureMe • Crafted With Precision
+        </div>
+    </footer>
+
+    <!-- Minimist Clipboard Toast -->
+    <div class="toast" id="share-toast">
+        Your FutureMe moment is ready to share. Link copied!
+    </div>
+
+    <!-- Application Script wiring -->
+    <script src="script.js"></script>
+</body>
+
+</html>
